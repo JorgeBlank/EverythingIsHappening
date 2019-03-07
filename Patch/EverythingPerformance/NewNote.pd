@@ -1,0 +1,34 @@
+#N canvas 253 108 779 487 10;
+#X obj 26 125 inlet;
+#X floatatom 108 134 5 0 0 1 Rescale_Sensitivity_Here - -, f 5;
+#X obj 512 116 loadbang;
+#X text 431 133 to rescale change numbers in box. higher numbers will
+increase stability \, lower numbers increase sensitivity;
+#X obj 90 348 select 1;
+#X obj 90 376 outlet new_event;
+#X obj 228 349 select 0;
+#X msg 294 349 0;
+#X obj 327 348 s mute;
+#X obj 90 227 >;
+#X msg 436 116 35;
+#X text 241 220 this object checks to see if change in amplitude is
+a new note or random system noise. current value (35) is good for my
+soundcard;
+#X obj 26 402 s vol;
+#X obj 228 377 s inputamp;
+#X floatatom 155 250 5 0 0 0 - - -, f 5;
+#X obj 291 312 r off;
+#X connect 0 0 12 0;
+#X connect 0 0 9 0;
+#X connect 1 0 9 1;
+#X connect 2 0 10 0;
+#X connect 4 0 5 0;
+#X connect 4 0 13 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 4 0;
+#X connect 9 0 6 0;
+#X connect 9 0 14 0;
+#X connect 10 0 1 0;
+#X connect 15 0 7 0;
+#X coords 0 -1 1 1 222 60 1 100 100;

@@ -1,0 +1,11 @@
+#N canvas 633 42 450 556 10;
+#X obj 30 180 NewNote;
+#X obj 29 39 InputAnalysisOct30Alt;
+#X obj 30 361 Mvt1_output;
+#X obj 30 342 ResynthesizerVanillaRev;
+#X obj 30 241 sequentialmidirepackerNov1rev;
+#X connect 0 0 4 1;
+#X connect 1 0 4 0;
+#X connect 1 1 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;

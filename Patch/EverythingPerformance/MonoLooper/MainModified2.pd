@@ -1,0 +1,192 @@
+#N canvas 176 118 1086 558 10;
+#X obj -305 -290 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X msg -305 -267 \; pd dsp \$1;
+#X obj -145 -330 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -319 -17 dac~ 1;
+#X obj -145 -299 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -203 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -130 -205 play loop from beginning;
+#X text -129 -168 auto sart looping after recording;
+#X text -130 -137 play once;
+#X obj -145 -234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -129 -330 start recording;
+#X text -129 -299 stop recording;
+#X text -129 -110 direct;
+#X obj -145 -108 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -319 -50 MonoLooper 1;
+#X text -262 -16 Audio Out;
+#X obj -145 -167 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -305 -314 loadbang;
+#X text -130 -267 stop now;
+#X text -130 -235 stop at the end of loop;
+#X floatatom 482 -55 5 0 0 0 - - -, f 5;
+#X floatatom 478 15 10 0 0 0 - - -, f 10;
+#X text 529 -55 bpm;
+#X text 560 14 ms;
+#X obj 491 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 482 97 metro 8000;
+#X obj 463 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 520 40 5 0 0 0 - - -, f 5;
+#X floatatom 626 -51 5 0 0 0 - - -, f 5;
+#X msg 627 -31 60000 \$1;
+#X floatatom 627 22 10 0 0 0 - - -, f 10;
+#X text 590 22 bpm;
+#X obj 627 -4 /;
+#X obj 438 -24 expr ( 1 / $f1 ) * 60000;
+#X obj 502 -293 t b b b;
+#X obj 569 -290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 514 -229 line~;
+#X text 252 -318 math has to be done first because this is a signal
+;
+#X msg 489 -266 600 60000;
+#X msg 574 -264 100;
+#X msg 504 -165 50;
+#X text 44 -96 Audio In;
+#X obj 17 -68 adc~ 1;
+#X text -318 -217 receieved;
+#X obj 109 -50 extra/fiddle~ 2048 1;
+#X obj -265 127 line;
+#X obj -265 159 select 0;
+#X msg -231 -296 1;
+#X obj -267 53 t b b b b;
+#X obj -261 90 int;
+#X obj 322 -282 t b b b;
+#X obj 279 -288 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 420 -53 50;
+#X obj 328 -220 line;
+#X msg 392 -253 100;
+#X obj 500 -194 s~ taptempo;
+#X floatatom 338 -189 5 0 0 0 - - -, f 5;
+#X floatatom -203 119 5 0 0 0 - - -, f 5;
+#X msg -225 90 1;
+#X msg -302 91 0;
+#X floatatom -207 140 5 0 0 0 - - -, f 5;
+#X obj 308 -158 expr ( 1 / $f1 ) * 60000;
+#X floatatom 369 -121 5 0 0 0 - - -, f 5;
+#X msg 336 -255 260000;
+#X msg 282 -254 600;
+#X obj 258 77 line;
+#X obj 256 3 t b b b b;
+#X floatatom 320 69 5 0 0 0 - - -, f 5;
+#X floatatom 258 106 5 0 0 0 - - -, f 5;
+#X msg 320 165 300000;
+#X obj 256 -19 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 286 -19 sat start of piece;
+#X text 305 106 poll this value for rand;
+#X obj -23 100 int;
+#X obj -25 8 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text -3 6 whatever starts recording;
+#X obj -23 125 expr ( 1 / $f1 ) * 60000;
+#X text 166 128 cnvt bpm to ms;
+#X floatatom 38 150 5 0 0 0 - - -, f 5;
+#X obj -149 137 + 300;
+#X floatatom -87 121 5 0 0 0 - - -, f 5;
+#X floatatom -113 169 5 0 0 0 - - -, f 5;
+#X text -286 182 later this could function as a nice envelope generator
+;
+#X obj -25 64 t b b b b;
+#X text 377 158 real value for above..reduced for testing;
+#X msg 262 40 30000;
+#X floatatom -159 34 5 0 0 0 - - -, f 5;
+#X obj -268 22 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -148 96 random 1100;
+#X text -148 -12 range should be smth like 50-900;
+#X text -246 196 maybe drunk walk rather than rand??;
+#X msg 316 38 60;
+#X msg 222 39 900;
+#X text 493 -85 interestingly 900 bpm = 66.6667 ms;
+#X obj 611 111 cyclone/drunk;
+#X connect 0 0 1 0;
+#X connect 2 0 16 1;
+#X connect 4 0 16 2;
+#X connect 5 0 16 3;
+#X connect 6 0 16 5;
+#X connect 7 0 16 7;
+#X connect 11 0 16 4;
+#X connect 15 0 16 8;
+#X connect 16 0 3 0;
+#X connect 18 0 16 6;
+#X connect 19 0 0 0;
+#X connect 19 0 49 0;
+#X connect 22 0 35 0;
+#X connect 23 0 27 1;
+#X connect 23 0 30 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 29 0 27 1;
+#X connect 30 0 31 0;
+#X connect 31 0 34 0;
+#X connect 34 0 32 0;
+#X connect 35 0 23 0;
+#X connect 36 0 40 0;
+#X connect 36 2 41 0;
+#X connect 37 0 36 0;
+#X connect 38 0 57 0;
+#X connect 40 0 38 0;
+#X connect 41 0 38 0;
+#X connect 42 0 57 0;
+#X connect 44 0 46 0;
+#X connect 44 0 16 0;
+#X connect 47 0 62 0;
+#X connect 47 0 48 0;
+#X connect 48 0 4 0;
+#X connect 49 0 18 0;
+#X connect 50 1 61 0;
+#X connect 50 2 51 0;
+#X connect 50 3 60 0;
+#X connect 51 0 59 0;
+#X connect 51 0 47 1;
+#X connect 52 0 66 0;
+#X connect 52 1 65 0;
+#X connect 52 2 56 0;
+#X connect 53 0 52 0;
+#X connect 55 0 58 0;
+#X connect 56 0 55 0;
+#X connect 60 0 47 0;
+#X connect 61 0 47 0;
+#X connect 63 0 64 0;
+#X connect 65 0 55 1;
+#X connect 66 0 55 0;
+#X connect 67 0 70 0;
+#X connect 67 0 75 1;
+#X connect 68 1 94 0;
+#X connect 68 2 87 0;
+#X connect 68 3 93 0;
+#X connect 71 0 67 1;
+#X connect 72 0 68 0;
+#X connect 75 0 78 0;
+#X connect 76 0 85 0;
+#X connect 78 0 80 0;
+#X connect 78 0 90 1;
+#X connect 81 0 83 0;
+#X connect 81 0 51 1;
+#X connect 85 0 50 0;
+#X connect 85 1 90 0;
+#X connect 85 2 75 0;
+#X connect 85 3 2 0;
+#X connect 87 0 67 1;
+#X connect 88 0 51 1;
+#X connect 89 0 50 0;
+#X connect 89 0 2 0;
+#X connect 90 0 82 0;
+#X connect 90 0 81 0;
+#X connect 93 0 67 0;
+#X connect 94 0 67 0;

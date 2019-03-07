@@ -1,0 +1,226 @@
+#N canvas 104 50 1248 625 10;
+#X obj -261 -300 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X msg -261 -277 \; pd dsp \$1;
+#X obj -145 -330 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -299 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -203 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -145 -136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -130 -205 play loop from beginning;
+#X text -129 -168 auto sart looping after recording;
+#X text -130 -137 play once;
+#X obj -145 -234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -129 -330 start recording;
+#X text -129 -299 stop recording;
+#X text -129 -110 direct;
+#X obj -145 -108 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -319 -50 MonoLooper 1;
+#X text -262 -16 Audio Out;
+#X obj -145 -167 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -261 -324 loadbang;
+#X text -130 -267 stop now;
+#X text -130 -235 stop at the end of loop;
+#X floatatom 111 -290 5 0 0 0 - - -, f 5;
+#X floatatom 107 -220 10 0 0 0 - - -, f 10;
+#X text 158 -290 bpm;
+#X text 189 -221 ms;
+#X floatatom 255 -286 5 0 0 0 - - -, f 5;
+#X msg 256 -266 60000 \$1;
+#X floatatom 256 -213 10 0 0 0 - - -, f 10;
+#X text 219 -213 bpm;
+#X obj 256 -239 /;
+#X obj 67 -259 expr ( 1 / $f1 ) * 60000;
+#X text 44 -96 Audio In;
+#X text -318 -217 receieved;
+#X obj 109 -50 extra/fiddle~ 2048 1;
+#X obj -265 127 line;
+#X obj -265 152 select 0;
+#X msg -187 -306 1;
+#X obj -267 53 t b b b b;
+#X obj -261 90 int;
+#X msg 71 -288 50;
+#X floatatom -203 119 5 0 0 0 - - -, f 5;
+#X msg -225 90 1;
+#X msg -302 91 0;
+#X floatatom -200 135 5 0 0 0 - - -, f 5;
+#X obj 258 77 line;
+#X obj 256 3 t b b b b;
+#X floatatom 320 69 5 0 0 0 - - -, f 5;
+#X floatatom 258 106 5 0 0 0 - - -, f 5;
+#X msg 263 39 300000;
+#X obj 256 -19 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 305 106 poll this value for rand;
+#X obj -109 99 int;
+#X obj -25 8 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text -3 6 whatever starts recording;
+#X obj -109 124 expr ( 1 / $f1 ) * 60000;
+#X text 67 124 cnvt bpm to ms;
+#X floatatom 38 150 5 0 0 0 - - -, f 5;
+#X floatatom -69 176 5 0 0 0 - - -, f 5;
+#X floatatom -118 194 5 0 0 0 - - -, f 5;
+#X obj -111 63 t b b b b;
+#X msg 431 192 30000;
+#X floatatom -159 34 5 0 0 0 - - -, f 5;
+#X obj -172 -29 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -148 -12 range should be smth like 50-900;
+#X msg 316 38 60;
+#X msg 222 39 900;
+#X text 122 -320 interestingly 900 bpm = 66.6667 ms;
+#X obj 109 -67 +~;
+#X obj 110 -91 adc~;
+#X obj -158 98 random;
+#X text -47 77 +20 scales output diff values get faster/slower rates
+;
+#X text 286 -19 set start of piece;
+#X text 377 177 real value for above (5min) ..reduced for testing;
+#X obj 689 -328 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 689 -297 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 689 -266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 689 -201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 689 -134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 689 -232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 689 -106 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 572 -14 Audio Out;
+#X obj 689 -165 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 569 129 line;
+#X obj 569 154 select 0;
+#X obj 567 55 t b b b b;
+#X obj 573 92 int;
+#X floatatom 631 121 5 0 0 0 - - -, f 5;
+#X msg 609 92 1;
+#X msg 532 93 0;
+#X floatatom 634 137 5 0 0 0 - - -, f 5;
+#X obj 725 99 int;
+#X obj 755 7 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 725 126 expr ( 1 / $f1 ) * 60000;
+#X floatatom 872 152 5 0 0 0 - - -, f 5;
+#X floatatom 765 178 5 0 0 0 - - -, f 5;
+#X floatatom 716 196 5 0 0 0 - - -, f 5;
+#X obj 723 65 t b b b b;
+#X floatatom 675 36 5 0 0 0 - - -, f 5;
+#X obj 662 -27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 676 100 random;
+#X obj 515 -48 MonoLooper 2;
+#X obj -319 -17 dac~;
+#X obj 515 -15 dac~;
+#X obj -159 75 + 10;
+#X obj 676 77 + 10;
+#X connect 0 0 1 0;
+#X connect 2 0 15 1;
+#X connect 3 0 15 2;
+#X connect 4 0 15 3;
+#X connect 5 0 15 5;
+#X connect 6 0 15 7;
+#X connect 10 0 15 4;
+#X connect 14 0 15 8;
+#X connect 15 0 101 0;
+#X connect 17 0 15 6;
+#X connect 18 0 0 0;
+#X connect 18 0 36 0;
+#X connect 21 0 30 0;
+#X connect 22 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 29 0;
+#X connect 29 0 27 0;
+#X connect 30 0 22 0;
+#X connect 33 1 52 0;
+#X connect 33 1 91 0;
+#X connect 34 0 43 0;
+#X connect 34 0 35 0;
+#X connect 35 0 3 0;
+#X connect 36 0 17 0;
+#X connect 36 0 81 0;
+#X connect 37 1 42 0;
+#X connect 37 2 38 0;
+#X connect 37 3 41 0;
+#X connect 38 0 40 0;
+#X connect 38 0 34 1;
+#X connect 41 0 34 0;
+#X connect 42 0 34 0;
+#X connect 44 0 47 0;
+#X connect 44 0 51 1;
+#X connect 44 0 90 1;
+#X connect 45 1 65 0;
+#X connect 45 2 48 0;
+#X connect 45 3 64 0;
+#X connect 48 0 44 1;
+#X connect 49 0 45 0;
+#X connect 51 0 54 0;
+#X connect 52 0 59 0;
+#X connect 54 0 56 0;
+#X connect 54 0 69 1;
+#X connect 59 0 37 0;
+#X connect 59 1 69 0;
+#X connect 59 2 51 0;
+#X connect 59 3 2 0;
+#X connect 60 0 44 1;
+#X connect 61 0 38 1;
+#X connect 62 0 37 0;
+#X connect 62 0 2 0;
+#X connect 64 0 44 0;
+#X connect 65 0 44 0;
+#X connect 67 0 15 0;
+#X connect 67 0 33 0;
+#X connect 67 0 100 0;
+#X connect 68 0 67 0;
+#X connect 68 1 67 1;
+#X connect 69 0 57 0;
+#X connect 69 0 103 0;
+#X connect 73 0 100 1;
+#X connect 74 0 100 2;
+#X connect 75 0 100 3;
+#X connect 76 0 100 5;
+#X connect 77 0 100 7;
+#X connect 78 0 100 4;
+#X connect 79 0 100 8;
+#X connect 81 0 100 6;
+#X connect 82 0 89 0;
+#X connect 82 0 83 0;
+#X connect 83 0 74 0;
+#X connect 84 1 88 0;
+#X connect 84 2 85 0;
+#X connect 84 3 87 0;
+#X connect 85 0 86 0;
+#X connect 85 0 82 1;
+#X connect 87 0 82 0;
+#X connect 88 0 82 0;
+#X connect 90 0 92 0;
+#X connect 91 0 96 0;
+#X connect 92 0 93 0;
+#X connect 92 0 99 1;
+#X connect 96 0 84 0;
+#X connect 96 1 99 0;
+#X connect 96 2 90 0;
+#X connect 96 3 73 0;
+#X connect 97 0 85 1;
+#X connect 98 0 84 0;
+#X connect 98 0 73 0;
+#X connect 99 0 94 0;
+#X connect 99 0 104 0;
+#X connect 100 0 102 1;
+#X connect 103 0 58 0;
+#X connect 103 0 38 1;
+#X connect 104 0 95 0;
+#X connect 104 0 85 1;

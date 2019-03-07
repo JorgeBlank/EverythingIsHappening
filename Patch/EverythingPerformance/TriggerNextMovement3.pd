@@ -1,0 +1,66 @@
+#N canvas 358 82 874 422 10;
+#X obj 104 104 bng 120 250 50 0 $_mvt1 empty MVT_1 13 28 0 10 -45076
+-159808 -1;
+#X floatatom 578 280 5 0 0 0 CurrentlyRunningMovement: - -, f 5;
+#X obj 107 308 bng 50 250 50 0 rset empty Restart 5 20 0 10 -258113
+-260097 -4160;
+#X obj 766 177 s trigger1;
+#X obj 766 205 s trigger2;
+#X obj 766 229 s trigger3;
+#X obj 296 104 bng 120 250 50 0 $_mvt2 empty MVT_2 13 28 0 10 -4160
+-13330 -1;
+#X obj 489 104 bng 120 250 50 0 $_mvt3 empty MVT_3 13 28 0 10 -33289
+-86277 -1;
+#X msg 306 339 1;
+#X obj 366 364 select 1;
+#X obj 365 389 select 2;
+#X obj 365 415 select 3;
+#X msg 308 376 2;
+#X msg 309 415 3;
+#X obj 484 265 hradio 15 1 0 3 empty empty or_start_mvt_from_midi 0
+-8 0 10 -159808 -1 -1 0;
+#X obj 119 380 + 1;
+#X obj 150 380 mod 3;
+#X obj 89 380 f;
+#X obj 123 20 notein;
+#X obj 178 20 ctlin;
+#X obj 128 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 775 42 loadbang;
+#X msg 775 74 0;
+#X obj 89 403 + 1;
+#X msg 390 74 0;
+#X text 170 322 this button is not used in current version;
+#X connect 0 0 3 0;
+#X connect 0 0 8 0;
+#X connect 2 0 24 0;
+#X connect 6 0 4 0;
+#X connect 6 0 12 0;
+#X connect 7 0 5 0;
+#X connect 7 0 13 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 8 0 11 0;
+#X connect 8 0 1 0;
+#X connect 12 0 9 0;
+#X connect 12 0 10 0;
+#X connect 12 0 11 0;
+#X connect 12 0 1 0;
+#X connect 13 0 11 0;
+#X connect 13 0 10 0;
+#X connect 13 0 9 0;
+#X connect 13 0 1 0;
+#X connect 14 0 23 0;
+#X connect 15 0 17 1;
+#X connect 16 0 14 0;
+#X connect 16 0 23 0;
+#X connect 17 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 0;
+#X connect 20 0 17 0;
+#X connect 21 0 22 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 14 0;
+#X coords 0 -1 1 1 520 200 1 100 100;

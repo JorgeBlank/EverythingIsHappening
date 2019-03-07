@@ -1,0 +1,18 @@
+#N canvas 686 295 450 300 10;
+#X obj 19 68 f;
+#X obj 19 98 -;
+#X obj 12 18 inlet new_value;
+#X obj 12 41 t f f b;
+#X obj 19 119 abs;
+#X obj 19 185 outlet trigger;
+#X obj 19 163 select 1;
+#X obj 19 139 < 0;
+#X connect 0 0 1 1;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;
+#X connect 3 1 1 0;
+#X connect 3 2 0 0;
+#X connect 4 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
